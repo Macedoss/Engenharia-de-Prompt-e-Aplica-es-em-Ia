@@ -1,0 +1,123 @@
+Criamos um prompt de IA vago e refinado de um codigo para uma calculadora de notas.
+
+PROMPT VAGO CALCULADORA
+
+"Aqui está um código em Python simples e interativo para somar notas. Ele também calcula a média, que costuma ser bem útil nesse tipo de situação.
+
+Python
+def calcular_soma_notas():
+    notas = []
+    
+    # Pergunta ao usuário quantas notas serão inseridas
+    try:
+        quantidade = int(input("Quantas notas você deseja somar? "))
+    except ValueError:
+        print("Por favor, digite um número inteiro válido.")
+        return
+
+    # Coleta cada uma das notas
+    for i in range(quantidade):
+        while True:
+            try:
+                nota = float(input(f"Digite a {i+1}ª nota: "))
+                notas.append(nota)
+                break
+            except ValueError:
+                print("Valor inválido. Por favor, digite um número (ex: 8.5).")
+
+    # Calcula a soma e a média
+    soma = sum(notas)
+    media = soma / quantidade if quantidade > 0 else 0
+
+    # Exibe o resultado
+    print("\n--- Resultado ---")
+    print(f"Notas inseridas: {notas}")
+    print(f"Soma total: {soma:.2f}")
+    print(f"Média: {media:.2f}")
+
+# Executa a função
+calcular_soma_notas()
+Como esse código funciona:
+Entrada flexível: Ele pergunta quantas notas você quer somar, então serve para bimestres, semestres ou qualquer outra quantidade.
+
+Prevenção de erros: Se você digitar uma letra por engano no lugar de um número, o código não "quebra" imediatamente; ele avisa que o valor é inválido e pede para digitar novamente.
+
+Cálculo automático: Usa a função sum() nativa do Python para somar todos os valores da lista rapidamente."
+
+
+
+PROMPT REFINADO DE CALCULADORA
+
+Papel - Desenvolvedor Senior
+Contexto - Um prova pratica 
+Tarefo - criar uma calculadora que soma notas 
+Format - código e pyton
+
+
+
+Olá, avaliadores! É um prazer demonstrar meu trabalho para vocês nesta etapa prática.
+
+Como um desenvolvedor sênior, entendo que até mesmo uma tarefa simples como uma calculadora de notas exige boas práticas de engenharia. Por isso, decidi escrever a solução em Python, focando em legibilidade, tipagem estática (type hints), tratamento de erros (para evitar que o programa quebre se o usuário digitar uma letra) e manutenibilidade.
+
+Conforme o requisito do teste, comentei absolutamente todas as linhas do código para detalhar meu raciocínio lógico em cada etapa da construção.
+
+Aqui está a implementação da nossa calculadora:
+
+Python
+# Importa o módulo sys para podermos encerrar a execução de forma elegante, caso necessário.
+import sys
+
+# Define a função principal com anotação de tipo informando que ela não retorna nada (None).
+def iniciar_calculadora_notas() -> None:
+    # Inicializa a variável que armazenará a soma total, tipada estritamente como um número decimal (float).
+    soma_total: float = 0.0
+    
+    # Exibe uma mensagem de boas-vindas e instruções iniciais para o usuário no console.
+    print("=== Calculadora de Soma de Notas ===")
+    
+    # Exibe a instrução de como interromper o programa, garantindo uma boa experiência de usuário (UX).
+    print("Instrução: Digite 'sair' a qualquer momento para ver o resultado final.")
+    
+    # Inicia um loop infinito que manterá o programa rodando até que o usuário decida parar.
+    while True:
+        # Solicita a entrada do usuário, remove espaços em branco extras (strip) e converte para minúsculas (lower).
+        entrada_usuario: str = input("\nDigite a nota do aluno: ").strip().lower()
+        
+        # Verifica se o valor inserido corresponde ao comando de parada pré-estabelecido ('sair').
+        if entrada_usuario == 'sair':
+            # Se for o comando de parada, o comando 'break' interrompe a execução do loop imediatamente.
+            break
+            
+        # Inicia um bloco 'try' para lidar com possíveis erros de conversão de tipo (tratamento de exceções).
+        try:
+            # Tenta converter o texto digitado pelo usuário em um número decimal (float).
+            nota_convertida: float = float(entrada_usuario)
+            
+            # Realiza uma validação de regra de negócio simples: verifica se a nota inserida é negativa.
+            if nota_convertida < 0:
+                # Se for negativa, exibe um alerta, pois notas negativas geralmente indicam um erro de digitação.
+                print("Aviso: Você inseriu uma nota negativa. Ela será computada, mas verifique se está correto.")
+                
+            # Adiciona o valor da nota convertida à nossa variável acumuladora (soma_total).
+            soma_total += nota_convertida
+            
+            # Dá um feedback visual rápido para o usuário saber que a nota foi registrada com sucesso.
+            print(f"Sucesso! Nota {nota_convertida:.2f} adicionada.")
+            
+        # Caso a conversão para float falhe (ex: o usuário digitou "A" ou "dez"), o ValueError é capturado.
+        except ValueError:
+            # Informa ao usuário de forma amigável que o valor inserido é inválido, sem quebrar o programa.
+            print("Erro de validação: Por favor, digite apenas números (ex: 8.5 ou 10).")
+
+    # Após o loop ser encerrado pelo comando 'break', uma linha em branco é impressa para organização visual.
+    print("\n------------------------------------")
+    
+    # Imprime o resultado final da soma formatando o número para exibir apenas duas casas decimais (.2f).
+    print(f"RESULTADO FINAL: A soma de todas as notas é {soma_total:.2f}")
+
+# Bloco condicional padrão em Python para garantir que o código só rode se o arquivo for executado diretamente.
+if __name__ == "__main__":
+    # Chama a função principal pela primeira vez, iniciando o fluxo do nosso software.
+    iniciar_calculadora_notas()
+Por que essa abordagem?
+Mesmo em um teste simples, um perfil sênior precisa mostrar que pensa na robustez do software. Adicionar tratamento de exceções (try/except) evita crashes, sanitizar a entrada do usuário (.strip().lower()) evita erros bobos de digitação, e usar type hints (-> None, : float) facilita a vida de outros desenvolvedores que forem ler o código no futuro.
