@@ -1,3 +1,5 @@
-# Engenharia-de-Prompt-e-Aplica-es-em-Ia
+# Engenharia de Prompt e Aplicações em IA
 
-Materia sobre IA e criações de prompts , uso de ia em codigos , prompts, e trabalhos
+Repositório dedicado ao aprendizado e prática de **Engenharia de Prompts** e aplicações práticas de IA em desenvolvimento de software.
+
+## 📁 Estrutura do Repositório
