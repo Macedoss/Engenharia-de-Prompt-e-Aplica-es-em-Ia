@@ -20,28 +20,7 @@ O **PromoAlerta** permite que usuários se cadastrem para receber notificações
 
 ---
 
-## 📁 Estrutura de Arquivos
 
-```
-projeto-lowcode-nocode/
-│
-├── index.html               ← Página principal
-│
-├── src/
-│   ├── css/
-│   │   └── styles.css       ← Estilos da interface
-│   └── js/
-│       ├── config.js        ← ⭐ Configuração de produtos (escalável)
-│       └── app.js           ← Lógica da aplicação
-│
-├── docs/
-│   └── RELATORIO.md         ← Relatório completo do projeto
-│
-├── README.md
-└── requisitos.md
-```
-
----
 
 ## ⭐ Como Adicionar Novos Produtos
 
